@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+<div th:replace="~{menu :: menu}"></div>
 <h1>Novo Cliente</h1>
 
 <form th:action="@{/clientes/salvar}" th:object="${cliente}" method="post">
