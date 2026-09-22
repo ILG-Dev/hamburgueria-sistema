@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio - Hamburgueria</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        h1 { color: #111827; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb; }
+        th { background-color: #111827; color: white; }
+        .btn { padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }
+        .btn-novo { background-color: #2563eb; color: white; display: inline-block; margin-bottom: 20px; }
+        .btn-deletar { background-color: #dc2626; color: white; }
+        .disponivel-sim { color: #16a34a; font-weight: bold; }
+        .disponivel-nao { color: #dc2626; font-weight: bold; }
+    </style>
+</head>
+<body>
+<h1>Cardápio</h1>
+<a class="btn btn-novo" th:href="@{/produtos/novo}">+ Novo Produto</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>Disponível</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="produto : ${produtos}">
+        <td th:text="${produto.nome}"></td>
+        <td th:text="${produto.categoria}"></td>
+        <td th:text="${'R$ ' + produto.preco}"></td>
+        <td>
+            <span th:if="${produto.disponivel}" class="disponivel-sim">Sim</span>
+            <span th:unless="${produto.disponivel}" class="disponivel-nao">Não</span>
+        </td>
+        <td>
+            <a class="btn btn-deletar" th:href="@{/produtos/deletar/{id}(id=${produto.id})}">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
