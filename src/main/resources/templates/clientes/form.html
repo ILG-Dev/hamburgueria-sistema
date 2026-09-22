@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Cliente - Hamburgueria</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 0 20px; }
+        h1 { color: #111827; }
+        label { display: block; margin-top: 16px; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; }
+        button { margin-top: 24px; padding: 10px 20px; background-color: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #1d4ed8; }
+    </style>
+</head>
+<body>
+<h1>Novo Cliente</h1>
+
+<form th:action="@{/clientes/salvar}" th:object="${cliente}" method="post">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" th:field="*{nome}" required>
+
+    <label for="telefone">Telefone</label>
+    <input type="text" id="telefone" th:field="*{telefone}">
+
+    <label for="endereco">Endereço</label>
+    <input type="text" id="endereco" th:field="*{endereco}">
+
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>

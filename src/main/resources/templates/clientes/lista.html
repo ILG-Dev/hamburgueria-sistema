@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes - Hamburgueria</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        h1 { color: #111827; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb; }
+        th { background-color: #111827; color: white; }
+        .btn { padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }
+        .btn-novo { background-color: #2563eb; color: white; display: inline-block; margin-bottom: 20px; }
+        .btn-deletar { background-color: #dc2626; color: white; }
+    </style>
+</head>
+<body>
+<h1>Clientes</h1>
+<a class="btn btn-novo" th:href="@{/clientes/novo}">+ Novo Cliente</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Endereço</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cliente : ${clientes}">
+        <td th:text="${cliente.nome}"></td>
+        <td th:text="${cliente.telefone}"></td>
+        <td th:text="${cliente.endereco}"></td>
+        <td>
+            <a class="btn btn-deletar" th:href="@{/clientes/deletar/{id}(id=${cliente.id})}">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
