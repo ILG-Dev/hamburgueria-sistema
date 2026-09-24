@@ -38,6 +38,12 @@ src/main/java/com/ilgdev/hamburgueria/
 
 src/main/resources/templates/ → Páginas HTML (Thymeleaf)
 
+Confira também:
+
+Controle financeiro - https://github.com/ILG-Dev/controle-financeiro/tree/main
+
+Site Pessoal - https://github.com/ILG-Dev/site-pessoal
+
 
 ## Autor
 
